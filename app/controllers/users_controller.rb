@@ -1,9 +1,18 @@
 class UsersController < ApplicationController
 
-	def create # render the signup form
+	def new # render the signup form
+		
 	end
 
-	def new # creates a new user in db
+	def create # creates a new user in db
+		User.create signup_params
+		redirect_to root_path
 	end
+
+	private
+
+	def signup_params
+   		params.require(:user).permit(:email, :password, :name)
+    end
 
 end

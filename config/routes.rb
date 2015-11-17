@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   get 'signup', to: "users#new"
   get 'login', to: "sessions#new"
   get 'logout', to: "sessions#destroy"
-  get 'posts/new', to: "posts#create"
+  get 'posts/new', to: "posts#new"
 
   post 'signup', to: "users#create"
   post 'login', to: "sessions#create"
-  post 'posts', to: "posts#create"
-  
+  post 'posts/new', to: "posts#create"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

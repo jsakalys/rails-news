@@ -1,1 +1,8 @@
 signup form
+
+<%= form_for :user do |f| %>
+	<%= f.text_field :name, placeholder: 'Enter your name' %>
+	<%= f.email_field :email, placeholder: 'Enter your email' %>
+	<%= f.password_field :password, placeholder: 'Enter your password' %>
+	<%= f.submit 'Sign up' %>
+<% end %>

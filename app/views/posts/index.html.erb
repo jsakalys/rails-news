@@ -1,1 +1,11 @@
 posts index
+<% if @current_user %>
+<%= link_to "Log out", logout_path, class: 'btn btn-default' %>
+<% end %>
+<ol>
+<% @posts.each do |post| %>
+<li>
+<a href="<%= post.link %>"><%= post.title %></a>
+</li>
+<% end %>
+</ol>
