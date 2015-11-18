@@ -1,11 +1,26 @@
-posts index
+
+<% def get_comments array %>
+	<% array.each do |comment| %>
+		<% @margin += 10 %>
+		<div style="margin-left: <%= @margin %>px"><small><%= comment.body %></small> | <%= link_to "Add Comment", new_comment_comment_path(comment.id) %></div>
+	<% get_comments comment.comments %>
+	<% end %>
+<% end %>
+
 <% if @current_user %>
 <%= link_to "Log out", logout_path, class: 'btn btn-default' %>
+<% else %>
+<%= link_to "Log in", login_path, class: 'btn btn-default' %>
 <% end %>
+<%= link_to "Add post", new_post_path, class: 'btn btn-default' %>
 <ol>
 <% @posts.each do |post| %>
 <li>
-<a href="<%= post.link %>"><%= post.title %></a>
+<a href="<%= post.link %>"><%= post.title %></a> | 
+<%= link_to "Add Comment", new_post_comment_path(post.id) %><br>
+
+<% get_comments post.comments %>
+
 </li>
 <% end %>
 </ol>

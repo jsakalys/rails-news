@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-	has_many :post
+	has_many :posts
+	has_many :comments
+	has_many :ratings, class_name: 'Vote'
 
 	validates :name,
 	presence: true,

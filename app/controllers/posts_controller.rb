@@ -3,8 +3,8 @@ class PostsController < ApplicationController
 	
 	def index # shows a list of posts
 		@posts = Post.all
+		@margin = 0
 	end
-
 
 	def new # renders new post form
 	end

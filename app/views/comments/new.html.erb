@@ -1,0 +1,5 @@
+<h2>Add comment:</h2>
+<%= bootstrap_form_for :comment do |c| %>
+	<%= c.text_field :body, placeholder: 'Enter comment' %>
+	<%= c.primary 'Create' %>
+<% end %>

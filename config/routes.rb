@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post 'signup', to: "users#create"
   post 'login', to: "sessions#create"
   post 'posts/new', to: "posts#create"
+  post '/posts/:post_id/comments/new', to: "comments#create"
+  post '/comments/:comment_id/comments/new', to: "comments#create"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -23,7 +25,12 @@ Rails.application.routes.draw do
   #   resources :products
   resources :users
   resources :sessions
-  resources :posts
+  resources :posts do 
+    resources :comments
+  end
+  resources :comments do
+    resources :comments
+  end
 
   # Example resource route with options:
   #   resources :products do
